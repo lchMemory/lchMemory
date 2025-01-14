@@ -1,29 +1,28 @@
-name: Generate Snake
+name: Generate Snake Animation
 
 on:
-  schedule:
-    # 每天运行一次
+  schedule: # 定时运行
     - cron: "0 0 * * *"
-  workflow_dispatch:
-    # 手动触发
+  workflow_dispatch: # 手动触发
 
 jobs:
-  generate:
+  build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v2
 
+    steps:
+      # 拉取仓库代码
+      - uses: actions/checkout@v3
+
+      # 生成贡献蛇图
       - name: Generate Snake Animation
         uses: Platane/snk@v2
         with:
-          # 输出路径
-          output: "github-contribution-grid-snake.svg"
+          github_user_name: lchMemory
+          outputs: dist/snake.svg
 
-      - name: Commit and push
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add github-contribution-grid-snake.svg
-          git commit -m "Generated snake animation"
-          git push
+      # 上传文件到仓库
+      - name: Push Snake SVG to the output branch
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: output
+          build_dir: dist
