@@ -1,5 +1,7 @@
 ## Hi there 👋
-![GitHub Snake](https://raw.githubusercontent.com/lchMemory/lchMemory/output/snake.svg)
+### 🐍 GitHub Activity Graph
+![GitHub Snake Animation](https://github.com/lchMemory/lchMemory/blob/output/github-contribution-grid-snake.svg)
+
 <!--
 **lchMemory/lchMemory** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
